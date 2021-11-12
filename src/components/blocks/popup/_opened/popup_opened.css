@@ -1,0 +1,6 @@
+
+@media screen and (max-width: 786px) {
+  .popup_opened {
+    display: block;
+  }
+}

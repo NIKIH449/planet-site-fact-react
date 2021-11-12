@@ -1,0 +1,16 @@
+@media screen and (max-width: 786px) {
+  .popup__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    border-bottom: 2px solid rgba(255,255,255, .2);
+    padding: 0 32px 0 24px;
+    cursor: pointer;
+  }
+}
+
+.popup__item:first-child {
+  border-top: 2px solid rgba(255,255,255, .2);
+  padding-top: 0;
+}
