@@ -10,7 +10,14 @@
 @import url(../src/components/blocks/header/__menu-item/header__menu-item.css);
 @import url(../src/components/blocks/header/__menu-link/header__menu-link.css);
 @import url(../src/components/blocks/header/__button-menu/header__button-menu.css);
-
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_mercury.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_venus.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_earth.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_mars.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_jupiter.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_saturn.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_uranus.css);
+@import url(../src/components/blocks/header/__menu-link/_type/header__menu-link_type_neptune.css);
 /* PLANET */
 @import url(../src/components/blocks/planet/__box/planet__box.css);
 @import url(../src/components/blocks/planet/__general/planet__general.css);

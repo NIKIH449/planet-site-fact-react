@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import HeaderButton from './header-button/header-button';
-import { CurrenPlanetContext } from '../context/current-planet-context';
+
+import Menu from './menu/menu';
 
 function Header(props) {
-
+  const [menu, setMenu] = useState(false);
+  function handlerMenuButton() {
+    setMenu(false);
+  }
   return (
     <header className="header">
       <a
@@ -15,9 +19,10 @@ function Header(props) {
       </a>
       <nav className="header__navigation">
         <ul className="header__menu">
-          {props.planets.map((item) => {
+          {props.planets.map((item, index) => {
             return (
               <HeaderButton
+                key={index}
                 onPlanetClick={props.onPlanetClick}
                 planet={item}
                 name={item.name}
@@ -26,7 +31,17 @@ function Header(props) {
           })}
         </ul>
       </nav>
-      <button className="header__button-menu"></button>
+      <button
+        onClick={() => setMenu(true)}
+        className="header__button-menu"
+      ></button>
+      {menu && (
+        <Menu
+          planets={props.planets}
+          onClose={() => setMenu(false)}
+          onPlanetClick={props.onPlanetClick}
+        />
+      )}
     </header>
   );
 }

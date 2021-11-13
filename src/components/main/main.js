@@ -1,41 +1,63 @@
 import React, { useState } from 'react';
 import PlanetButton from './planet-button/planet-button';
 import PlanetFact from './planet-fact/planet-fact';
+import PlanetButtonMobile from './planet-button-mobile/planet-button-mobile';
 import { CurrenPlanetContext } from '../context/current-planet-context';
 
 function Main(props) {
   const currentPlanet = React.useContext(CurrenPlanetContext);
-  console.log(currentPlanet)
+  const [structure, setStructure] = useState(false);
+  const [geology, setGeology] = useState(false);
+  const [overview, setOverview] = useState(true);
+  function switchToGeology() {
+    setStructure(false);
+    setOverview(false);
+    setGeology(true);
+  }
+  function switchToStructure() {
+    setStructure(true);
+    setOverview(false);
+    setGeology(false);
+  }
+  function switchToOverwiew() {
+    setOverview(true);
+    setGeology(false);
+    setStructure(false);
+  }
+
   return (
     <main className="main">
       <section className="planet">
         <div className="planet__box">
           <div className="planet__buttons-mobile">
-            <button className="planet__button-mobile">
-              <a className="planet__button-mobile-link planet__button-mobile-link_type_overview">
-                OVERVIEW
-              </a>
-            </button>
-            <button className="planet__button-mobile">
-              <a className="planet__button-mobile-link planet__button-mobile-link_type_structure">
-                STRUCTURE
-              </a>
-            </button>
-            <button className="planet__button-mobile">
-              <a className="planet__button-mobile-link planet__button-mobile-link_type_surface">
-                SURFACE
-              </a>
-            </button>
+            <PlanetButtonMobile
+              active={() => setStructure(false)}
+              name="OVERVIEW"
+            />
+            <PlanetButtonMobile
+              active={() => setStructure(true)}
+              name="STRUCTURE"
+            />
+            <PlanetButtonMobile
+              active={() => setGeology(geology ? false : true)}
+              name="SURFACE"
+            />
           </div>
           <div className="planet__container">
             <div className="planet__pictures">
               <img
-                src={currentPlanet.images.internal}
+                src={currentPlanet.images.geology}
                 alt="planet"
-                className="planet__picture_type_geology"
+                className={`${
+                  geology && 'planet__picture_type_geology_active'
+                } planet__picture_type_geology`}
               />
               <img
-                src={currentPlanet.images.planet}
+                src={
+                  structure === false
+                    ? currentPlanet.images.planet
+                    : currentPlanet.images.internal
+                }
                 alt="planet"
                 className="planet__picture planet__picture_type_structure"
               />
@@ -45,7 +67,21 @@ function Main(props) {
                 <h1 className="planet__name">
                   {currentPlanet.name.toUpperCase()}
                 </h1>
-                <p className="planet__description">{currentPlanet.overview.content}</p>
+                {structure && (
+                  <p className="planet__description">
+                    {currentPlanet.structure.content}
+                  </p>
+                )}
+                {geology && (
+                  <p className="planet__description">
+                    {currentPlanet.geology.content}
+                  </p>
+                )}
+                {overview && (
+                  <p className="planet__description">
+                    {currentPlanet.overview.content}
+                  </p>
+                )}
                 <p className="planet__source">
                   Source:{' '}
                   <a
@@ -55,7 +91,7 @@ function Main(props) {
                   >
                     Wikipedia
                     <img
-                      src="./images/icon-source.svg"
+                      src="https://nikih449.github.io/planets-fact-site/images/icon-source.svg"
                       alt="Wikipedia"
                       className="planet__link-pic"
                     />
@@ -63,9 +99,21 @@ function Main(props) {
                 </p>
               </div>
               <div className="planet__buttons">
-                <PlanetButton number="01" name="OVERVIEW" />
-                <PlanetButton number="02" name="INTERNAL STRUCTURE" />
-                <PlanetButton number="03" name="SURFACE GEOLOGY" />
+                <PlanetButton
+                  number="01"
+                  active={switchToOverwiew}
+                  name="OVERVIEW"
+                />
+                <PlanetButton
+                  number="02"
+                  active={switchToStructure}
+                  name="INTERNAL STRUCTURE"
+                />
+                <PlanetButton
+                  number="03"
+                  active={switchToGeology}
+                  name="SURFACE GEOLOGY"
+                />
               </div>
             </div>
           </div>
