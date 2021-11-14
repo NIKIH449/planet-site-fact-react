@@ -1,4 +1,4 @@
-# MESTO
+# PLANET FACTS
 ![Иллюстрация к проекту](https://github.com/NIKIH449/planets-fact-site/raw/main/images/preview.jpg)
 
 ## Описание
