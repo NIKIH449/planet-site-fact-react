@@ -9,12 +9,10 @@
 
 ### Используемые технологии
 
-- HTML
+- REACT
 - CSS
-- JS
-- БЭМ
+- BAM
 - API
-- Webpack
 
 
 ### Инструкция по развёртыванию 
@@ -27,5 +25,4 @@
 
 Соберет проект в папку build.
 
-#### [GitHub Pages](https://nikih449.github.io/
-planet-site-fact/)
+#### [GitHub Pages](https://nikih449.github.io/planet-site-fact/)
