@@ -1,13 +1,11 @@
 # PLANET FACTS
 ![Иллюстрация к проекту](https://github.com/NIKIH449/planets-fact-site/raw/main/images/preview.jpg)
 
-## Описание
+## About
 
-Проект -- сайт с информацией о планетах в нашей солнечной системе. 
-Вся информация берется с Википедии и обновляется вслед за исправлениями в Википедии.
+Interactive website with information about every planet of the Solar system, the information is up-to-date as it originates from outer sources.
 
-
-### Используемые технологии
+### Stack
 
 - REACT
 - CSS
@@ -15,14 +13,14 @@
 - API
 
 
-### Инструкция по развёртыванию 
+### How to run this project? 
 
 #### npm start
 
-Запуск в режиме разработки. Откроется окно в браузере.
+Start dev server
 
 #### npm run build
 
-Соберет проект в папку build.
+Build app to dist folder
 
 #### [GitHub Pages](https://nikih449.github.io/planet-site-fact/)
